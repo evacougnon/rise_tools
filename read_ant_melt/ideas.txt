@@ -1,0 +1,10 @@
+
+some plotting ideas!
+
+1- plot the timeseries of the integatred mass loss per ice shelf
+
+2- plot the spatial spread of all the models
+	using the time averaged melt rate/mass loss on a common grid!
+	first need to have all the data onto a common grid!
+
+
