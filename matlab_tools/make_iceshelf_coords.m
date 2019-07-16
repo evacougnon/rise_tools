@@ -27,12 +27,12 @@ shelf = isiceshelf(xgrid,ygrid);
 
 
 for i=1:length(name)
-shelf=name{i};
-shelves(i).name=shelf;
-[wx,wy] = antbounds_data(shelf,'xy');
-shelf_poly = inpolygon(xgrid,ygrid,wx,wy);
+    shelf=name{i};
+    shelves(i).name=shelf;
+    [wx,wy] = antbounds_data(shelf,'xy');
+    shelf_poly = inpolygon(xgrid,ygrid,wx,wy);
 %plot(xgrid(shelf_poly),ygrid(shelf_poly),'ro')
-[shelves(i).lat,shelves(i).lon] = ps2ll(xgrid(shelf_poly),ygrid(shelf_poly));
+    [shelves(i).lat,shelves(i).lon] = ps2ll(xgrid(shelf_poly),ygrid(shelf_poly));
 end
 
 save('shelves.mat','shelves')
