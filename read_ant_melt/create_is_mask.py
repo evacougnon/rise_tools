@@ -56,19 +56,11 @@ grd_name = 'waom2_grd.nc'
 data_dir = os.path.join(os.pardir,os.pardir,'DATA',model_name)
 grd_path = os.path.join(data_dir,'GRD',grd_name)
 shelves_coord_path = os.path.join(os.pardir,'matlab_tools','shelves.mat')
-mr_path = os.path.join(data_dir,'full_annual_m_2007.nc') # will need to update when multiple files!!....
 shelf_masks_dict = os.path.join(data_dir,'POST_PROCESS','shelf_mask.npy')
 #########################
 # Load data
 #########################
 grd = xr.open_dataset(grd_path)
-mr = xr.open_dataset(mr_path).m.squeeze()
-
-# useful numbers! -- may change between models!
-s2a = 3600*24*365.25
-rhoi = 916
-mask_vostock = (grd.lat_rho<-75) & (grd.lat_rho>-80) & \
-               (grd.lon_rho>95) & (grd.lon_rho<115)
 
 ##############################
 # Create masks for each shelf
@@ -123,7 +115,6 @@ for idx in range(np.size(coords)):
 
 np.save(shelf_masks_dict,shelves)
 
-#shelves = np.load(shelf_masks_dict)[()] # load as a dictionary!
 
 
 
